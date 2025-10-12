@@ -46,10 +46,16 @@ lab6-components/
 ## **Approaches**
 
 ### **1. Static HTML/CSS Prototype**
-
+- Pure layout + styles
+- Semantic tags, scrollable messages
+- Bubbles (user right, bot left)
+- Input/footer visuals only
 
 ### **2. DOM Manipulation (Standard JavaScript)**
-
+- Empty container → JS appends messages
+- Click + Enter to send
+- Simple Eliza reply
+- Auto-scroll; clear input
 
 ### **3.Progressive Enhancement**
 
