@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Progressive Enhancement</title>
     <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="chat-component.js"></script>
 </head>
 
 <body>
@@ -15,7 +14,7 @@
 <simple-chat>
     <header>
         <h1>Chat Assistant</h1>
-        <p>Progressive Enhancement</p>
+        <p>Progressive Enhancement (Disable JS to Test)</p>
     </header>
 
     <div class="messages">
@@ -26,6 +25,8 @@
         <button type="submit">Send</button>
     </form>
 </simple-chat>
+
+<script type='module' src="chat-component.js"></script>
 
 </body>
 
