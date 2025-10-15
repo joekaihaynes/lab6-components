@@ -58,10 +58,18 @@ lab6-components/
 - Auto-scroll; clear input
 
 ### **3.Progressive Enhancement**
-
+- I made a <simple-chat> tag that shows basic HTML first.
+- If JavaScript loads, it “upgrades” the chat: finds .messages and the form, and listens for submit.
+- No Shadow DOM here, so my normal CSS works on it.
+- When I send a message, it creates the bubbles with createElement and scrolls to the bottom.
+- The bot answer comes from eliza.js (or a tiny fallback if that’s not there).
 
 ### **4. Web Component**
-
+- built a <chat-interface> that puts all HTML and CSS inside the Shadow DOM.
+- The styles are contained, so page CSS doesn’t mess it up (and it doesn’t mess up the page).
+- I query stuff with this.shadowRoot.querySelector(...).
+- Same flow as before: submit → add user message → bot reply → auto-scroll.
+- It feels more “real component,” because I can drop it anywhere and it just works.
 
 ## **Reflections & Comparisons**
 
