@@ -1,0 +1,79 @@
+:root {
+    --radius :1rem
+}
+
+body {
+    background-color: royalblue;
+    font-family: sans-serif;
+    display: block;
+    height: 100vh;
+    margin: 0;
+}
+
+main{
+    width: 70%;
+    max-width: 60rem;
+    height: auto;
+    margin: 2rem auto;
+    text-align: center;
+    background-color: white;
+    border-radius: var(--radius);
+    display: flex;
+    flex-direction: column;
+}
+
+section.approach-grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+section.approach-grid-item{
+    border-radius: var(--radius);
+    padding: 1rem;
+    text-align: left;
+    border: .1rem solid rgba(0, 0, 0, 0.2);
+    margin: 1rem;
+}
+section.approach-grid-item label{
+    color: white;
+    border-radius: var(--radius);
+    background-color: red;
+    padding: .5rem;
+}
+section.approach-grid-item:first-child label {
+    background-color: gray;
+}
+
+section.approach-grid-item h2{
+    font-size: 1.5rem;
+}
+
+section.approach-grid-item p{
+    color: lightslategrey;
+}
+
+section.approach-grid-item ul{
+    list-style: none;
+    padding: 0;
+    margin: 0 0 .75rem 0;
+    display : grid;
+    gap: 0.5rem;
+    color: lightslategrey;
+}
+
+section.approach-grid-item li::before{
+    content:"✔";
+    color: forestgreen;
+    margin-right: 0.5rem;
+}
+
+section.approach-grid-item a{
+    text-decoration: none;
+}
+
+footer{
+    padding: 2rem;
+    border-top: .1rem solid rgba(0, 0, 0, 0.2);
+}
+
