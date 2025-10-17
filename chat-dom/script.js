@@ -42,11 +42,11 @@ function addToChatWindow(message, role) {
 function send() {
 
     let messageBox = document.getElementById('messageBox');
-    let message = messageBox.value;
+    let message = messageBox.value.trim();
     if (!message) return;
     let chatWindow = document.getElementById('chatWindow');
 
-    messageBox.value = ''; // clear the fiel
+    messageBox.value = '';
     messageBox.focus();
 
     addToChatWindow(message,'user');
@@ -65,6 +65,11 @@ function init() {
 
         send();
 
+    });
+
+    document.getElementById('chatForm').addEventListener('submit', function(e){
+        e.preventDefault();
+        send();
     });
 
 }
