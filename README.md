@@ -72,17 +72,34 @@ lab6-components/
 - It feels more “real component,” because I can drop it anywhere and it just works.
 
 ## **Reflections & Comparisons**
+- Static: fastest for layout; great for nailing structure and visual polish; no behavior.
+- DOM: straightforward interactivity; global CSS/JS can collide; good stepping stone.
+- Progressive Enhancement: renders useful HTML without JS; JS “upgrades” it; keeps semantics; still shares page styles.
+- Web Component: most portable and predictable; styles don’t leak in or out; requires shadow-specific selectors.
 
 ## **Observations:**
-
+- Scrolling/layout: min-height: 0 is crucial for scrollable flex/grid children; use gap (not space-between) for stacked messages.
+- Auto-scroll: append, then container.scrollTop = container.scrollHeight.
+- Selectors: use classes for components; ensure multi-class strings include a space ("message " + role).
+- Shadow DOM styling: use :host + internal classes; global selectors like body won’t apply inside the shadow.
+- UI polish: badges as inline-block so pills hug text; keep link colors consistent with a:visited; use target="_blank" rel="noopener noreferrer" for external/demo links.
 
 ## **Challenges Encountered**
-
+- Module vs. classic scripts: mixing import with non-module <script>; missing .js in imports; opening file:// instead of serving over http://.
+- Form behavior: Enter key reloading the page until a submit handler + preventDefault() was added.
+- Shadow DOM queries: trying this.querySelector instead of this.shadowRoot.querySelector.
+- Layout gaps: using justify-content: space-between in a column created giant spaces; replaced with gap.
+- Centering & height: full-viewport cards (height: 100vh) prevented natural scrolling; switched to height: auto and centered with margins/flex.
+- Visited link color: anchors turning purple; fixed by styling a:visited.
 
 ## **Lessons Learned**
+- Semantic first. A strong HTML/CSS base makes every upgrade easier.
+- Progressively enhance. The UI should still show something useful if JS fails.
+- Pick one JS loading strategy. Consistency avoids 90% of “why did this stop working?”
+- Shadow DOM = portable components. Use it when you want reliable, isolated UI you can drop anywhere.
 
-
-## **Issues / Notes**
+## Link ## 
+https://joekaihaynes.github.io/lab6-components/
 
 ## **Author**
 **Joe Haynes**  
