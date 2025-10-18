@@ -1,3 +1,15 @@
+/**
+ * Shadow-DOM Web Component: <chat-interface>
+ *
+ * Renders a self-contained chat UI (header, messages, input) inside a shadow root.
+ * - Styles are encapsulated inside the shadow DOM (no global leakage).
+ * - Minimal Eliza-style reply via imported getBotResponse().
+ *
+ * Requirements:
+ * - Load this file as a module in HTML:
+ *     <script type="module" src="chat-component.js"></script>
+ * - Ensure the import path to eliza.js is correct and that it exports getBotResponse.
+ */
 import {getBotResponse} from "../chat-webcomponent-pe/eliza.js";
 
 class chatInterface extends HTMLElement {
@@ -6,6 +18,12 @@ class chatInterface extends HTMLElement {
         this.attachShadow({mode: 'open'});
     }
 
+    /**
+     * Lifecycle: Called when the element is inserted into the document.
+     * - Injects internal HTML/CSS
+     * - Caches references to important nodes
+     * - Wires the submit handler (handleEvent)
+     */
     connectedCallback() {
         this.shadowRoot.innerHTML = `
             <style>
@@ -126,6 +144,12 @@ class chatInterface extends HTMLElement {
         }
     }
 
+    /**
+     * Generic event handler for addEventListener(object).
+     * Routes submit events to the send logic.
+     * @param {SubmitEvent} event
+     * @returns {void}
+     */
     handleEvent(event) {
         if (event.type === 'submit') {
             event.preventDefault();
@@ -138,6 +162,12 @@ class chatInterface extends HTMLElement {
         }
     }
 
+    /**
+     * Append a message bubble to the .messages container.
+     * Styles rely on classes: "message user" or "message bot".
+     * @param {'user'|'bot'} role - who said it (affects styling/alignment)
+     * @param {string} text - message text
+     */
     add(role, text) {
         let div = document.createElement('div');
         div.className = 'message ' + role;
@@ -145,6 +175,11 @@ class chatInterface extends HTMLElement {
         this.messages.appendChild(div);
     }
 
+    /**
+     * Get a reply from the Eliza-like bot.
+     * @param {string} text - user input
+     * @returns {string} bot reply text
+     */
     reply(text) {
         return getBotResponse(text);
     }
