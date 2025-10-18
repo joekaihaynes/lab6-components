@@ -63,6 +63,7 @@ class chatInterface extends HTMLElement {
                     padding: 1rem;
                     max-width : 45ch;
                     text-align: left;
+                    overflow-wrap: anywhere;
                 }
             
                 .message.user{

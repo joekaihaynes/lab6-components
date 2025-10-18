@@ -58,6 +58,7 @@ chat-window{
     padding: 1rem;
     max-width : 45ch;
     text-align: left;
+    overflow-wrap: break-word;
 }
 
 .user{

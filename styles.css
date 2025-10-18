@@ -68,7 +68,8 @@ section.approach-grid-item li::before{
     margin-right: 0.5rem;
 }
 
-section.approach-grid-item a{
+section.approach-grid-item a, section.approach-grid-item a:visited{
+    color: blue;
     text-decoration: none;
 }
 
